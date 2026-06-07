@@ -1,0 +1,307 @@
+---
+const features3 = [
+  'Primer pago al iniciar el proyecto',
+  'Pagos 2 y 3 durante el desarrollo',
+  'Tasa preferencial incluida',
+];
+
+const features6 = [
+  'Primer pago al iniciar el proyecto',
+  'Pagos distribuidos mensualmente',
+  'Tasa preferencial incluida',
+  'Ideal para proyectos de transformación digital',
+];
+
+const footnote = '* Financiamiento sujeto a aprobación. Tasa preferencial aplicada al saldo.';
+---
+
+<section class="section fin-section" id="financiamiento">
+  <div class="fin-grid">
+
+    <!-- Left column -->
+    <div class="fin-left reveal-left">
+      <p class="section-label">Financiamiento</p>
+      <h2 class="fin-heading">Empieza hoy.<br />Paga cómodamente.</h2>
+      <p class="fin-sub">
+        Sabemos que invertir en tecnología es una decisión importante. Por eso
+        ofrecemos planes de pago flexibles para que el flujo de tu negocio no
+        se vea afectado.
+      </p>
+      <div class="fin-deco">
+        <span class="fin-deco-num">3–6</span>
+        <span class="fin-deco-unit">meses</span>
+      </div>
+      <div class="fin-trust">
+        <span class="fin-dot"></span>
+        <span>Sin enganche. Sin burocracia.</span>
+      </div>
+    </div>
+
+    <!-- Right column -->
+    <div class="fin-cards">
+
+      <!-- Card 1 — Plan Trimestral -->
+      <div class="fin-card fin-card--featured reveal-right" style="transition-delay:0.08s">
+        <div class="fin-card-top">
+          <span class="fin-badge">Más popular</span>
+          <h3 class="fin-plan-name">Plan Trimestral</h3>
+          <p class="fin-plan-desc">Divide tu inversión en 3 pagos mensuales.</p>
+          <ul class="fin-features">
+            {features3.map((f) => (
+              <li><span class="fin-check">✓</span>{f}</li>
+            ))}
+          </ul>
+        </div>
+        <p class="fin-footnote">{footnote}</p>
+      </div>
+
+      <!-- Card 2 — Plan Semestral -->
+      <div class="fin-card reveal-right" style="transition-delay:0.16s">
+        <div class="fin-card-top">
+          <h3 class="fin-plan-name">Plan Semestral</h3>
+          <p class="fin-plan-desc">Seis pagos mensuales para proyectos de mayor alcance.</p>
+          <ul class="fin-features">
+            {features6.map((f) => (
+              <li><span class="fin-check">✓</span>{f}</li>
+            ))}
+          </ul>
+        </div>
+        <p class="fin-footnote">{footnote}</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA row -->
+  <div class="fin-cta reveal" style="transition-delay:0.1s">
+    <span class="fin-cta-text">¿Quieres saber qué plan se adapta mejor a tu proyecto?</span>
+    <a class="fin-cta-btn" href="#contacto">Hablemos →</a>
+  </div>
+</section>
+
+<style>
+  .fin-section {
+    border-top: 0.5px solid var(--border);
+  }
+
+  /* ── Grid ── */
+  .fin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* ── Left column ── */
+  .fin-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .fin-heading {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(30px, 4.5vw, 54px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-top: 16px;
+    margin-bottom: 20px;
+  }
+
+  .fin-sub {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text2);
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 48px;
+  }
+
+  .fin-deco {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+  }
+
+  .fin-deco-num {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(80px, 12vw, 140px);
+    font-weight: 800;
+    color: var(--text3);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .fin-deco-unit {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text3);
+  }
+
+  .fin-trust {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text2);
+  }
+
+  .fin-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #30d158;
+    flex-shrink: 0;
+  }
+
+  /* ── Cards ── */
+  .fin-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .fin-card {
+    background: var(--bg);
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    transition: background 0.25s, box-shadow 0.3s ease;
+  }
+
+  .fin-card:hover {
+    background: var(--bg2);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+  }
+
+  .fin-card--featured {
+    border-color: var(--text3);
+  }
+
+  .fin-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .fin-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--text);
+    color: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 4px;
+  }
+
+  .fin-plan-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .fin-plan-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  .fin-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .fin-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+
+  .fin-check {
+    color: var(--text3);
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+
+  .fin-footnote {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text3);
+    line-height: 1.5;
+  }
+
+  /* ── CTA row ── */
+  .fin-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .fin-cta-text {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text2);
+  }
+
+  .fin-cta-btn {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+    background: transparent;
+    border: 0.5px solid var(--border);
+    border-radius: 100px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    white-space: nowrap;
+  }
+
+  .fin-cta-btn:hover {
+    background: var(--bg2);
+    transform: translateY(-1px);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .fin-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .fin-sub {
+      font-size: 16px;
+    }
+
+    .fin-cta {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
