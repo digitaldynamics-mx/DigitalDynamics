@@ -5,7 +5,6 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://digitaldynamics-mx.github.io',
-  base: '/DigitalDynamics',
+  site: 'https://digitaldynamics.mx',
   integrations: [react(), tailwind({ applyBaseStyles: false })],
 });
