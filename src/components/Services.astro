@@ -1,0 +1,78 @@
+---
+const services = [
+  {
+    icon: '⚙️',
+    title: 'Automatización',
+    description:
+      'Eliminamos el trabajo repetitivo. Tus procesos, corriendo solos mientras tú te enfocas en lo que importa.',
+  },
+  {
+    icon: '📱',
+    title: 'Apps web y móvil',
+    description:
+      'Interfaces que tus equipos y clientes quieren usar. Diseñadas para la operación real, no para demos.',
+  },
+  {
+    icon: '🔗',
+    title: 'Integraciones',
+    description:
+      'Conectamos tus herramientas para que la información fluya sola. Adiós al copiar y pegar entre sistemas.',
+  },
+  {
+    icon: '🧭',
+    title: 'Consultoría tech',
+    description:
+      'Te ayudamos a tomar decisiones tecnológicas con claridad, sin que tengas que entender de código.',
+  },
+  {
+    icon: '🏗️',
+    title: 'Desarrollo a medida',
+    description:
+      'Software hecho exactamente para cómo funciona tu empresa. Sin plantillas, sin compromisos.',
+  },
+  {
+    icon: '🔄',
+    title: 'Transformación digital',
+    description:
+      'Acompañamiento completo para empresas listas para dejar atrás el Excel y los procesos manuales.',
+  },
+];
+---
+
+<section class="section" id="servicios">
+  <p class="section-label reveal">Lo que hacemos</p>
+  <h2 class="section-title reveal" style="transition-delay:0.08s">
+    Soluciones que <em>realmente</em> mueven tu negocio
+  </h2>
+  <div class="services-grid stagger">
+    {
+      services.map((service) => (
+        <div class="service-card reveal">
+          <div class="service-icon">{service.icon}</div>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  // 3D hover effect on service cards
+  document.querySelectorAll<HTMLElement>('.service-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotY = ((x - cx) / cx) * 6;
+      const rotX = -((y - cy) / cy) * 4;
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform =
+        'perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    });
+  });
+</script>

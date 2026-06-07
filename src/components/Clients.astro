@@ -1,0 +1,106 @@
+---
+const clients = [
+  { name: 'Libra Fitness Gym',     src: '/logo-libra.png' },
+  { name: 'SuValet',               src: '/logo-suvalet.png' },
+  { name: 'Caverna Geek',          src: '/logo-caverna.png' },
+  { name: 'Duke City Barbershop',  src: '/logo-duke.png' },
+  { name: 'Panorama.m',            src: '/logo-panorama.png' },
+];
+---
+
+<div class="clients-wrap" id="clientes">
+  <div class="section clients-section">
+    <p class="section-label reveal">Confían en nosotros</p>
+    <h2 class="section-title reveal" style="transition-delay:0.08s">
+      Empresas que ya <em>trabajan distinto.</em>
+    </h2>
+    <div class="clients-grid stagger reveal" style="transition-delay:0.16s">
+      {
+        clients.map((client) => (
+          <div class="client-logo-wrap">
+            <img src={client.src} alt={client.name} loading="lazy" />
+            <span class="client-name">{client.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .clients-wrap {
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .clients-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .clients-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-top: 56px;
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .client-logo-wrap {
+    flex: 1 1 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 32px;
+    border-right: 0.5px solid var(--border);
+    transition: background 0.25s;
+  }
+
+  .client-logo-wrap:last-child {
+    border-right: none;
+  }
+
+  .client-logo-wrap:hover {
+    background: var(--bg2);
+  }
+
+  .client-name {
+    margin-top: 14px;
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text3);
+  }
+
+  .client-logo-wrap img {
+    max-width: 320px;
+    max-height: 160px;
+    object-fit: contain;
+    opacity: 0.75;
+    filter: grayscale(100%);
+  }
+
+  @media (max-width: 768px) {
+    .clients-grid {
+      border-radius: 16px;
+    }
+
+    .client-logo-wrap {
+      flex: 1 1 120px;
+      padding: 28px 20px;
+      border-right: none;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .client-logo-wrap:last-child {
+      border-bottom: none;
+    }
+  }
+</style>

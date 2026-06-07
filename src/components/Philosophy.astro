@@ -1,0 +1,88 @@
+---
+const points = [
+  {
+    num: '01',
+    title: 'Entendemos primero',
+    description:
+      'Antes de proponer una solución, entendemos tu operación, tus procesos y tus objetivos reales.',
+  },
+  {
+    num: '02',
+    title: 'Proponemos lo necesario',
+    description:
+      'Sin sobrevender tecnología. Te decimos qué necesitas y qué no, con honestidad.',
+  },
+  {
+    num: '03',
+    title: 'Acompañamos hasta el final',
+    description:
+      'Desde la idea hasta la implementación. Y seguimos contigo después del lanzamiento.',
+  },
+];
+---
+
+<div class="philosophy" id="filosofia">
+  <div class="philosophy-inner">
+    <!-- Image column -->
+    <div class="phil-image-col reveal-left">
+      <div class="phil-deco-top"></div>
+      <div class="phil-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80&auto=format&fit=crop"
+          alt="Equipo Digital Dynamics trabajando"
+          loading="lazy"
+        />
+      </div>
+      <!-- Decorative SVG -->
+      <svg
+        class="phil-deco"
+        viewBox="0 0 160 160"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="80"
+          cy="80"
+          r="78"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-dasharray="8 6"></circle>
+        <circle
+          cx="80"
+          cy="80"
+          r="52"
+          stroke="currentColor"
+          stroke-width="1"
+          stroke-dasharray="4 4"></circle>
+        <circle cx="80" cy="80" r="26" stroke="currentColor" stroke-width="0.75"
+        ></circle>
+      </svg>
+      <!-- Floating card -->
+      <div class="phil-card-float">
+        <div class="label">Proyectos entregados</div>
+        <div class="value">+4</div>
+        <div class="desc">En múltiples industrias</div>
+      </div>
+    </div>
+
+    <!-- Content column -->
+    <div class="phil-content-col reveal-right">
+      <div class="philosophy-quote">
+        No vendemos código.<br /><span>Resolvemos problemas de negocio.</span>
+      </div>
+      <div class="philosophy-points">
+        {
+          points.map((point) => (
+            <div class="phil-point">
+              <span class="phil-num">{point.num}</span>
+              <div class="phil-text">
+                <h4>{point.title}</h4>
+                <p>{point.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>

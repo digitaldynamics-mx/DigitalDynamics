@@ -1,0 +1,237 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Diagnóstico gratuito',
+    description:
+      'Nos reunimos contigo para entender cómo opera tu negocio hoy: qué procesos son manuales, dónde se pierde tiempo y qué oportunidades de mejora existen. Sin tecnicismos, sin compromiso.',
+    delay: '0.05s',
+  },
+  {
+    number: '02',
+    title: 'Propuesta a medida',
+    description:
+      'Diseñamos una solución específica para tu caso. Te explicamos qué vamos a construir, por qué, cuánto tiempo toma y cuánto cuesta — todo en lenguaje claro.',
+    delay: '0.12s',
+  },
+  {
+    number: '03',
+    title: 'Desarrollo iterativo',
+    description:
+      'Construimos en ciclos cortos. Cada semana tienes visibilidad de lo que se avanzó. Puedes dar retroalimentación en tiempo real; nada se entrega como sorpresa al final.',
+    delay: '0.19s',
+  },
+  {
+    number: '04',
+    title: 'Entrega y acompañamiento',
+    description:
+      'Lanzamos juntos. Te capacitamos, resolvemos dudas y seguimos disponibles después del go-live. La relación no termina con la entrega.',
+    delay: '0.26s',
+  },
+];
+---
+
+<section class="section wp-section" id="proceso">
+  <p class="section-label reveal">Cómo trabajamos</p>
+  <h2 class="section-title reveal" style="transition-delay:0.08s">
+    De la idea a la solución, <em>sin sorpresas.</em>
+  </h2>
+
+  <div class="wp-layout">
+    <!-- Stepper -->
+    <div class="wp-stepper">
+      {
+        steps.map((step, i) => (
+          <div class="wp-step reveal" style={`transition-delay:${step.delay}`}>
+            <div class="wp-left">
+              <span class="wp-num">{step.number}</span>
+              {i < steps.length - 1 && <div class="wp-connector" />}
+            </div>
+            <div class="wp-right">
+              <h3 class="wp-title">{step.title}</h3>
+              <p class="wp-desc">{step.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Decorative card -->
+    <div class="wp-card reveal-right" style="transition-delay:0.1s">
+      <div class="wp-card-inner">
+        <span class="wp-card-label">Tiempo promedio</span>
+        <span class="wp-card-number">2–6</span>
+        <span class="wp-card-unit">semanas</span>
+        <div class="wp-card-divider"></div>
+        <p class="wp-card-note">
+          Desde el diagnóstico hasta el lanzamiento, dependiendo del alcance del
+          proyecto.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .wp-section {
+    padding-bottom: 80px;
+  }
+
+  .wp-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 80px;
+    align-items: start;
+    margin-top: 64px;
+  }
+
+  /* ── Stepper ── */
+  .wp-stepper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wp-step {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .wp-step:not(:last-child) {
+    padding-bottom: 48px;
+  }
+
+  .wp-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .wp-num {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    color: var(--text3);
+    line-height: 1;
+    transition: color 0.3s ease;
+  }
+
+  .wp-step:hover .wp-num {
+    color: var(--text);
+  }
+
+  .wp-connector {
+    width: 1px;
+    flex: 1;
+    min-height: 32px;
+    background: var(--border);
+    margin-top: 12px;
+  }
+
+  .wp-right {
+    padding-top: 6px;
+    flex: 1;
+  }
+
+  .wp-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .wp-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  /* ── Decorative card ── */
+  .wp-card {
+    position: sticky;
+    top: 80px;
+  }
+
+  .wp-card-inner {
+    border: 0.5px solid var(--border);
+    border-radius: 20px;
+    background: var(--bg2);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wp-card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+
+  .wp-card-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .wp-card-unit {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text2);
+    margin-top: 8px;
+  }
+
+  .wp-card-divider {
+    width: 100%;
+    height: 0.5px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  .wp-card-note {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text2);
+    line-height: 1.65;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .wp-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .wp-card {
+      position: static;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .wp-step {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .wp-left {
+      flex-direction: row;
+      width: auto;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wp-connector {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,30 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-img" id="hero-img"></div>
+  <div class="hero-content">
+    <h1>Tu negocio,<br /><em>sin fricción.</em></h1>
+    <p class="hero-sub">
+      Transformamos procesos manuales en sistemas que trabajan por ti. Tecnología
+      que se adapta a tu negocio, no al revés.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://calendar.app.google/C2T6QcFanfcL2QJG7" target="_blank" rel="noopener noreferrer">Agenda una consulta</a>
+      <a class="btn-secondary" href="#servicios">Ver servicios →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Parallax hero image
+  const heroImg = document.getElementById('hero-img');
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!heroImg) return;
+      heroImg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+    },
+    { passive: true }
+  );
+</script>

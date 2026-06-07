@@ -1,0 +1,18 @@
+---
+const items = [
+  'Desarrollo de software',
+  'Automatización de procesos',
+  'Consultoría tecnológica',
+  'Transformación digital',
+  'Apps web y móvil',
+  'Integraciones de sistemas',
+  'Arquitectura de software',
+];
+---
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    {items.map((item) => <span class="marquee-item">{item}</span>)}
+    {items.map((item) => <span class="marquee-item">{item}</span>)}
+  </div>
+</div>

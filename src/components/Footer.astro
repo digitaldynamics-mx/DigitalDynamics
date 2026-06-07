@@ -1,0 +1,25 @@
+---
+const links = [
+  { href: '#servicios', label: 'Servicios', external: false },
+  { href: '#filosofia', label: 'Nosotros', external: false },
+  { href: 'https://wa.me/526673366491', label: 'Contacto', external: true },
+];
+---
+
+<footer>
+  <div class="footer-logo">
+    <img class="logo-dark" src="/logo-dark.png" alt="Digital Dynamics" />
+    <img class="logo-white" src="/logo-white.png" alt="Digital Dynamics" />
+    <span class="footer-brand">DIGITAL DYNAMICS</span>
+  </div>
+  <p class="footer-copy">© {new Date().getFullYear()} Digital Dynamics. Todos los derechos reservados.</p>
+  <ul class="footer-links">
+    {links.map((link) => (
+      <li>
+        <a href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined}>
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</footer>

@@ -1,0 +1,24 @@
+{
+  "name": "digital-dynamics",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3",
+    "@astrojs/tailwind": "^5",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "astro": "^4.16.19",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwindcss": "^3"
+  }
+}

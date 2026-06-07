@@ -1,0 +1,70 @@
+---
+const stats = [
+  { target: 100, prefix: '', suffix: '%', label: 'Enfoque en resultados de negocio' },
+  { target: 20, prefix: '', suffix: '', label: 'Expertos dedicados a tu proyecto' },
+  { target: 5, prefix: '+', suffix: '', label: 'Clientes satisfechos' },
+];
+---
+
+<div class="stats-bar stagger">
+  {
+    stats.map((stat, i) => (
+      <div class="stat-item reveal" style={i > 0 ? `transition-delay:${i * 0.1}s` : ''}>
+        <div
+          class="stat-num"
+          data-target={stat.target}
+          data-prefix={stat.prefix}
+          data-suffix={stat.suffix}
+        >
+          {stat.prefix}{stat.target}{stat.suffix}
+        </div>
+        <div class="stat-label">{stat.label}</div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  function animateCount(
+    el: HTMLElement,
+    target: number,
+    prefix: string = '',
+    suffix: string = '',
+    duration: number = 1600
+  ) {
+    const isFloat = target % 1 !== 0;
+    let start: number | null = null;
+    function step(ts: number) {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = isFloat
+        ? (target * eased).toFixed(1)
+        : Math.floor(target * eased);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  const statObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseFloat(el.dataset.target ?? '0');
+          const prefix = el.dataset.prefix ?? '';
+          const suffix = el.dataset.suffix ?? '';
+          animateCount(el, target, prefix, suffix);
+          statObserver.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll('.stat-num[data-target]').forEach((el) =>
+    statObserver.observe(el)
+  );
+</script>

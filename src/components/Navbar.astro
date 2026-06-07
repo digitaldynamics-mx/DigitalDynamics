@@ -1,0 +1,68 @@
+---
+---
+
+<nav id="main-nav">
+  <a class="nav-logo" href="/">
+    <img class="logo-dark" src="/logo-dark.png" alt="Digital Dynamics" />
+    <img class="logo-white" src="/logo-white.png" alt="Digital Dynamics" />
+    <span class="nav-logo-text">DIGITAL DYNAMICS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#clientes">Clientes</a></li>
+    <li><a href="#casos">Casos de éxito</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#filosofia">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/526673366491" target="_blank" rel="noopener noreferrer">Hablemos</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#servicios" onclick="closeMobile()">Servicios</a>
+  <a href="#clientes" onclick="closeMobile()">Clientes</a>
+  <a href="#casos" onclick="closeMobile()">Casos de éxito</a>
+  <a href="#proceso" onclick="closeMobile()">Proceso</a>
+  <a href="#filosofia" onclick="closeMobile()">Nosotros</a>
+  <a href="#contacto" onclick="closeMobile()">Contacto</a>
+  <a href="https://wa.me/526673366491" target="_blank" rel="noopener noreferrer" class="m-cta" onclick="closeMobile()">Hablemos</a>
+</div>
+
+<script>
+  function toggleMenu() {
+    const m = document.getElementById('mobileMenu')!;
+    const h = document.getElementById('hamburger')!;
+    m.classList.toggle('open');
+    const spans = h.querySelectorAll('span') as NodeListOf<HTMLElement>;
+    if (m.classList.contains('open')) {
+      spans[0].style.transform = 'rotate(45deg) translate(4px,4px)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'rotate(-45deg) translate(4px,-4px)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  }
+
+  function closeMobile() {
+    const m = document.getElementById('mobileMenu')!;
+    m.classList.remove('open');
+    const spans = document.getElementById('hamburger')!.querySelectorAll('span') as NodeListOf<HTMLElement>;
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+
+  document.getElementById('hamburger')?.addEventListener('click', toggleMenu);
+
+  // Nav shrink on scroll
+  const nav = document.getElementById('main-nav')!;
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
