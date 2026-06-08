@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /agendar
+Disallow: /gracias
+
+Sitemap: https://digitaldynamics.mx/sitemap.xml

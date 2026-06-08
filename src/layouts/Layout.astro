@@ -3,9 +3,50 @@ import '../styles/global.css';
 
 interface Props {
   title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
 }
 
-const { title = 'Digital Dynamics' } = Astro.props;
+const {
+  title = 'Digital Dynamics',
+  description = 'Transformamos procesos manuales en sistemas que trabajan por ti. Automatización, apps web y móvil, integraciones y consultoría tech para empresas en México.',
+  canonical = Astro.url.href,
+  ogImage = '/og-image.png',
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = 'https://digitaldynamics.mx';
+const fullTitle = title === 'Digital Dynamics'
+  ? 'Digital Dynamics — Automatización y software a medida para tu negocio'
+  : `${title} — Digital Dynamics`;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Digital Dynamics',
+  url: siteUrl,
+  logo: `${siteUrl}/logo-dark.png`,
+  description,
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'MX',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    availableLanguage: 'Spanish',
+  },
+  sameAs: [],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Digital Dynamics',
+  url: siteUrl,
+};
 ---
 
 <!doctype html>
@@ -13,13 +54,44 @@ const { title = 'Digital Dynamics' } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <meta name="robots" content="index, follow" />}
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Digital Dynamics" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
       rel="stylesheet"
     />
+
     <link rel="icon" type="image/png" href="/logo-dark.png" />
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
   <body>
     <slot />
