@@ -287,7 +287,6 @@ footer{border-top:0.5px solid var(--border);padding:44px 60px;display:flex;align
    RESPONSIVE
 ────────────────────────────── */
 @media (max-width: 1024px) {
-  .services-grid{grid-template-columns:repeat(2,1fr);}
   .philosophy-inner{grid-template-columns:1fr;gap:0;}
   .phil-image-col{padding:60px 0 0;}
   .phil-content-col{padding:48px 0 60px;}
@@ -310,10 +309,9 @@ footer{border-top:0.5px solid var(--border);padding:44px 60px;display:flex;align
   .section{padding:80px 20px;}
   .section-title{max-width:100%;}
 
-  .services-grid{grid-template-columns:1fr;border-radius:16px;}
   .service-card{padding:28px 24px;}
 
-  .philosophy-inner{padding:0 20px;}
+.philosophy-inner{padding:0 20px;}
   .phil-image-col{padding:60px 0 0;}
   .phil-content-col{padding:40px 0 60px;}
   .phil-img-wrap{max-height:400px;}
