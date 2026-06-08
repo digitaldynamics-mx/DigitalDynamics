@@ -40,7 +40,7 @@ nav.scrolled {
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .nav-logo img{width:32px;height:32px;object-fit:contain;}
 .nav-logo-text{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text);letter-spacing:0.06em;}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none;}
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none;}
 .nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color 0.2s;}
 .nav-links a:hover{color:var(--text);}
 .nav-cta{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--bg);background:var(--text);border:none;padding:9px 22px;border-radius:100px;cursor:pointer;transition:opacity 0.2s;white-space:nowrap;}
@@ -293,10 +293,15 @@ footer{border-top:0.5px solid var(--border);padding:44px 60px;display:flex;align
   .phil-card-float{right:16px;bottom:20px;}
 }
 
+@media (max-width: 1100px) {
+  .nav-logo-text{display:none;}
+}
+
 @media (max-width: 768px) {
   nav{padding:0 20px;}
   .nav-links,.nav-cta{display:none;}
   .nav-hamburger{display:flex;}
+  .nav-logo-text{display:block;}
 
   .hero{padding:80px 20px 100px;}
   .hero h1{font-size:clamp(38px,11vw,64px);}
